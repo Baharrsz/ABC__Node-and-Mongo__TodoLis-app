@@ -25,14 +25,14 @@ exports.getTodo = (req,res) => {
     .catch(err => res.send(err))
 }
 
-//Updates one todo by having the id
+//Updates a todo by having the id
 exports.updateTodo =  (req,res) => {
     db.Todo.findByIdAndUpdate(req.params.todoId,req.body, {new: true})
     .then(updatedTodo => res.json(updatedTodo))
     .catch(err => res.send(err))
 }
 
-//Removes one todo by having the id
+//Removes a todo by having the id
 exports.deleteTodo =  (req,res) => {
     db.Todo.findOneAndDelete({_id:req.params.todoId})
     .then(deletedTodo => res.json(deletedTodo))
